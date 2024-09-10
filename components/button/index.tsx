@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
 		textTransform: 'uppercase',
 	},
 	outlineButton: {
-		borderWidth: 2,
+		borderWidth: 1.3,
 		borderColor: '#FFFFFF',
 		paddingVertical: verticalScale(14),
 		paddingHorizontal: verticalScale(30),
