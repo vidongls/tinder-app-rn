@@ -1,9 +1,9 @@
-import { Button } from '@/components';
+import { LogoText } from '@/icons';
+import { verticalScale } from '@/util';
 import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
-import { Image, SafeAreaView, StyleSheet, View } from 'react-native';
-import { AuthBox, Logo } from './components';
-import { verticalScale } from '@/util';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { AuthBox } from './components';
 
 export const AuthContainer = () => {
 	return (
@@ -16,7 +16,7 @@ export const AuthContainer = () => {
 			>
 				<SafeAreaView style={styles.safeArea}>
 					<View style={styles.boxMain}>
-						<Logo />
+						<LogoText />
 						<AuthBox />
 					</View>
 				</SafeAreaView>

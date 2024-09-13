@@ -1,13 +1,13 @@
 import { Button, CustomText } from '@/components';
 import { verticalScale } from '@/util';
-import { useLocalSearchParams, useNavigation } from 'expo-router';
+import { Link, useLocalSearchParams, useRouter } from 'expo-router';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 const AuthOps = () => {
-	const navigation = useNavigation();
-	const { type } = useLocalSearchParams();
+	const router = useRouter();
 
+	const { type } = useLocalSearchParams();
 	return (
 		<View style={styles.container}>
 			<CustomText style={styles.title} weight="700">
@@ -17,7 +17,8 @@ const AuthOps = () => {
 				We couldn’t find a Tinder account {'\n'} connected to that{' '}
 				<CustomText style={{ textTransform: 'capitalize' }}>{type}</CustomText> {'\n'} Account.
 			</CustomText>
-			<Button title="CREATE NEW ACCOUNT" onPress={() => navigation.goBack()} />
+
+			<Button title="CREATE NEW ACCOUNT" onPress={() => router.push('/auth/create-account')} />
 		</View>
 	);
 };

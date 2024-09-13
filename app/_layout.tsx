@@ -41,6 +41,7 @@ export default function RootLayout() {
 		<ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
 			<Stack>
 				<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+
 				<Stack.Screen
 					name="auth-ops"
 					options={{
@@ -58,9 +59,30 @@ export default function RootLayout() {
 						headerShadowVisible: false,
 					}}
 				/>
+
 				<Stack.Screen name="+not-found" />
 			</Stack>
 		</ThemeProvider>
 	);
+}
+
+{
+	/* <Stack.Screen
+					name="create-account"
+					options={{
+						headerTitle: () => (
+							<View>
+								<Logo />
+							</View>
+						),
+						headerTitleAlign: 'center',
+						headerTintColor: '#828693',
+						headerTitleStyle: {
+							fontWeight: 'bold',
+						},
+						headerBackTitleVisible: false,
+						headerShadowVisible: false,
+					}}
+				/> */
 }
 
