@@ -9,15 +9,34 @@ interface ButtonProps {
 	style?: ViewStyle;
 	textStyle?: TextStyle;
 	type?: 'primary' | 'outline';
+	disabled?: boolean; // Thêm thuộc tính disabled
 }
 
-export const Button: React.FC<ButtonProps> = ({ title, onPress, style, textStyle, type = 'primary' }) => {
+export const Button: React.FC<ButtonProps> = ({
+	title,
+	onPress,
+	style,
+	textStyle,
+	type = 'primary',
+	disabled = false,
+}) => {
 	const isPrimary = type === 'primary';
+
+	// Không cho phép nhấn nếu button đang ở trạng thái disabled
+	const handlePress = () => {
+		if (!disabled && onPress) {
+			onPress();
+		}
+	};
 
 	return (
 		<View style={[isPrimary && styles.shadow, style]}>
-			<TouchableOpacity onPress={onPress} style={[styles.button, !isPrimary && styles.outlineButton]}>
-				{isPrimary ? (
+			<TouchableOpacity
+				onPress={handlePress}
+				style={[styles.button, !isPrimary && styles.outlineButton, disabled && styles.disabledButton]}
+				disabled={disabled} // Thêm thuộc tính disabled vào TouchableOpacity
+			>
+				{isPrimary && !disabled ? (
 					<LinearGradient
 						colors={['#EA4080', '#EE805F']}
 						start={{ x: 0, y: 0 }}
@@ -27,7 +46,7 @@ export const Button: React.FC<ButtonProps> = ({ title, onPress, style, textStyle
 						<Text style={[styles.text, textStyle]}>{title}</Text>
 					</LinearGradient>
 				) : (
-					<Text style={[styles.text, textStyle]}>{title}</Text>
+					<Text style={[styles.text, textStyle, disabled && styles.disabledText]}>{title}</Text>
 				)}
 			</TouchableOpacity>
 		</View>
@@ -69,5 +88,13 @@ const styles = StyleSheet.create({
 		shadowRadius: 5,
 		elevation: 5,
 		borderRadius: verticalScale(100),
+	},
+	disabledButton: {
+		backgroundColor: '#EBECEF',
+		borderWidth: 1.3,
+		borderColor: '#EBECEF',
+	},
+	disabledText: {
+		color: '#828491',
 	},
 });

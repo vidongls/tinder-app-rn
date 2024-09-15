@@ -1,6 +1,6 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
 import { verticalScale } from '@/util';
+import React from 'react';
+import { Image, StyleSheet } from 'react-native';
 
 export const Logo = () => {
 	return <Image source={require('@/assets/images/logo.png')} style={styles.image} />;

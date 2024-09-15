@@ -14,16 +14,16 @@ export const AuthBox = () => {
 				Privacy Policy and Cookies Policy.
 			</Text>
 			<View style={styles.boxButton}>
-				<Button title="SIGN IN WITH APPLE" type="outline" onPress={() => router.push('/auth-ops?type=apple')} />
+				<Button title="SIGN IN WITH APPLE" type="outline" onPress={() => router.push('/auth/ops?type=apple')} />
 				<Button
 					title="SIGN IN WITH FACEBOOK"
 					type="outline"
-					onPress={() => router.push('/auth-ops?type=facebook')}
+					onPress={() => router.push('/auth/ops?type=facebook')}
 				/>
 				<Button
 					title="SIGN IN WITH PHONE NUMBER"
 					type="outline"
-					onPress={() => router.push('/auth-ops?type=phone')}
+					onPress={() => router.push('/auth/ops?type=phone')}
 				/>
 			</View>
 			<TouchableOpacity>

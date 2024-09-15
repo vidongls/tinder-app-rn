@@ -18,7 +18,7 @@ const AuthOps = () => {
 				<CustomText style={{ textTransform: 'capitalize' }}>{type}</CustomText> {'\n'} Account.
 			</CustomText>
 
-			<Button title="CREATE NEW ACCOUNT" onPress={() => router.push('/auth/create-account')} />
+			<Button title="CREATE NEW ACCOUNT" onPress={() => router.push('/auth/finish-info-account')} />
 		</View>
 	);
 };

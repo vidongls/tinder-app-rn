@@ -1,26 +1,18 @@
-import { AuthContainer } from '@/container';
+import { HomeContainer } from '@/container';
+import { useFocusEffect, useRouter } from 'expo-router';
+import { useCallback } from 'react';
 import { StyleSheet } from 'react-native';
 
 export default function HomeScreen() {
-	return <AuthContainer />;
-}
+	const router = useRouter();
+	useFocusEffect(
+		useCallback(() => {
+			setTimeout(() => {
+				router.push('/auth');
+			}, 300);
+		}, [])
+	);
 
-const styles = StyleSheet.create({
-	titleContainer: {
-		flexDirection: 'row',
-		alignItems: 'center',
-		gap: 8,
-	},
-	stepContainer: {
-		gap: 8,
-		marginBottom: 8,
-	},
-	reactLogo: {
-		height: 178,
-		width: 290,
-		bottom: 0,
-		left: 0,
-		position: 'absolute',
-	},
-});
+	return <HomeContainer />;
+}
 
